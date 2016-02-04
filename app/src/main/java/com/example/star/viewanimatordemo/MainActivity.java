@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView rotateView;
     TextView translateView;
     TextView scaleView;
+    TextView animatorSetView;
     @NonNull
     private View.OnClickListener mAlphaOnclickListener=new View.OnClickListener() {
         @Override
@@ -55,6 +57,24 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    @NonNull
+    private View.OnClickListener mAnimatorSetOnClickListener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            AnimationSet animationSet=new AnimationSet(true);
+            animationSet.setDuration(1000);
+            AlphaAnimation alphaAnimation=new AlphaAnimation(0,1);
+            alphaAnimation.setDuration(1000);
+            animationSet.addAnimation(alphaAnimation);
+
+            TranslateAnimation translateAnimation=new TranslateAnimation(0,100,0,200);
+            translateAnimation.setDuration(1000);
+            animationSet.addAnimation(translateAnimation);
+
+            contentView.startAnimation(animationSet);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,9 +85,11 @@ public class MainActivity extends AppCompatActivity {
         rotateView= (TextView) findViewById(R.id.rotate_view);
         translateView = (TextView) findViewById(R.id.translate_view);
         scaleView= (TextView) findViewById(R.id.scale_view);
+        animatorSetView= (TextView) findViewById(R.id.animator_set_view);
         alphaView.setOnClickListener(mAlphaOnclickListener);
         rotateView.setOnClickListener(mRotateOnClickListener);
         translateView.setOnClickListener(mTranslateOnClickListener);
         scaleView.setOnClickListener(mScaleOnClickListener);
+        animatorSetView.setOnClickListener(mAnimatorSetOnClickListener);
     }
 }

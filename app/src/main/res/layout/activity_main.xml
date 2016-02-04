@@ -69,4 +69,15 @@
         android:padding="5dp"
         android:text="scale" />
 
+    <TextView
+        android:id="@+id/animator_set_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/scale_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/darker_gray"
+        android:padding="5dp"
+        android:text="animator_set_view" />
+
 </RelativeLayout>
