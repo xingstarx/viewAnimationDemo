@@ -6,28 +6,28 @@
     android:layout_height="match_parent"
     tools:context="com.example.star.viewanimatordemo.MainActivity">
 
-    <TextView
-        android:id="@+id/content_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
-        android:padding="5dp"
-        android:text="Hello World!" />
+    <!--<TextView-->
+        <!--android:id="@+id/content_view"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/darker_gray"-->
+        <!--android:padding="5dp"-->
+        <!--android:text="Hello World!" />-->
 
     <TextView
-        android:id="@+id/center_view"
+        android:id="@+id/content_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@android:color/darker_gray"
         android:padding="5dp"
-        android:text="Center" />
+        android:text="Hello World!" />
 
     <TextView
         android:id="@+id/alpha_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/center_view"
+        android:layout_above="@id/content_view"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:background="@android:color/darker_gray"
@@ -57,5 +57,16 @@
         android:background="@android:color/darker_gray"
         android:padding="5dp"
         android:text="translate" />
+
+    <TextView
+        android:id="@+id/scale_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/translate_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/darker_gray"
+        android:padding="5dp"
+        android:text="scale" />
 
 </RelativeLayout>

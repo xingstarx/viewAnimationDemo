@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView contentView;
     TextView rotateView;
     TextView translateView;
+    TextView scaleView;
     @NonNull
     private View.OnClickListener mAlphaOnclickListener=new View.OnClickListener() {
         @Override
@@ -42,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
             contentView.startAnimation(translateAnimation);
         }
     };
+    @NonNull
+    private View.OnClickListener mScaleOnClickListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+//            ScaleAnimation scaleAnimation=new ScaleAnimation(0,2,0,2);
+            ScaleAnimation scaleAnimation=new ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+            scaleAnimation.setDuration(1000);
+            contentView.startAnimation(scaleAnimation);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
         contentView= (TextView) findViewById(R.id.content_view);
         rotateView= (TextView) findViewById(R.id.rotate_view);
         translateView = (TextView) findViewById(R.id.translate_view);
+        scaleView= (TextView) findViewById(R.id.scale_view);
         alphaView.setOnClickListener(mAlphaOnclickListener);
         rotateView.setOnClickListener(mRotateOnClickListener);
         translateView.setOnClickListener(mTranslateOnClickListener);
+        scaleView.setOnClickListener(mScaleOnClickListener);
     }
 }
